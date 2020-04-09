@@ -8,7 +8,7 @@ public class Asteroid {
 	private String distance;
 	private Float diameter;
 	private Boolean hazardous;
-	
+
 	protected Asteroid(LocalDate dateOf, String name, String distanceString, Float diameter, Boolean ifHazardous) {
 		super();
 		this.date = dateOf;
@@ -17,20 +17,19 @@ public class Asteroid {
 		this.diameter = diameter;
 		this.hazardous = ifHazardous;
 	}
-	
+
 	@Override
 	public String toString() {
-		
+
 		String distanceWithoutPoint = distance.substring(0, distance.indexOf("."));
 		Integer distanceInt = Integer.parseInt(distanceWithoutPoint);
-		Float distanceFloat = distanceInt/1000000f;
-		
-		return String.format("%s - %-24s: %-6.2f mln km from Earth, %-7.3f km is minimal diameter, %-17s;", date.toString(), name, distanceFloat, diameter,
-				                                                                             (hazardous == true ? "it is hazardous" : "it is't hazardous"));
+		Float distanceFloat = distanceInt / 1000000f;
+
+		return String.format("%s - %-24s: %-6.2f mln km from Earth, %-7.3f km is minimal diameter, %-17s;",
+				date.toString(), name, distanceFloat, diameter,
+				(hazardous == true ? "it is hazardous" : "it isn't hazardous"));
 	}
 
-	
-	
 	protected LocalDate getDate() {
 		return date;
 	}
